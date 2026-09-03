@@ -15,7 +15,11 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 | --- | --- | --- |
 | ![데스크톱 화면](images/screenshots/desktop-light.jpg) | ![모바일 화면](images/screenshots/mobile-light.jpg) | ![다크 모드 화면](images/screenshots/desktop-dark.jpg) |
 
-> 로컬 개발 서버에서 촬영한 화면입니다. GitHub Pages 배포 후 배포 URL에서 다시 촬영해 교체하세요.
+| Projects — GitHub API 성공 상태 + 언어 필터 |
+| --- |
+| ![Projects 섹션](images/screenshots/desktop-projects.jpg) |
+
+> 배포 URL(https://newids.github.io/codyssey-b1-1/)에서 촬영. 2026-09-04.
 
 ## 사용 기술
 

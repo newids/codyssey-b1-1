@@ -13,7 +13,7 @@
 | GitHub 저장소 URL | https://github.com/newids/codyssey-b1-1 |
 | 배포 URL (GitHub Pages) | https://newids.github.io/codyssey-b1-1/ |
 | 디자인 캔버스 (Claude Design) | https://claude.ai/code/artifact/a96c9e55-c9b6-49f7-af60-e68cd0eea9ee |
-| 스크린샷 (데스크톱 / 모바일 / 다크) | `images/screenshots/desktop-light.jpg` · `mobile-light.jpg` · `desktop-dark.jpg` (로컬 촬영본, README 표에 첨부됨 — 배포 후 배포 URL에서 재촬영 권장) |
+| 스크린샷 (데스크톱 / 모바일 / 다크 / Projects) | `images/screenshots/desktop-light.jpg` · `mobile-light.jpg` · `desktop-dark.jpg` · `desktop-projects.jpg` — 배포 URL에서 촬영 (2026-09-04), README 표에 첨부됨 |
 
 ### 1.2 폴더 구조
 
@@ -430,8 +430,7 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 | 폼 실제 전송 | 검증 후 화면 메시지만 표시, 어디에도 전송되지 않음 | Formspree 엔드포인트로 `fetch(POST)` 추가. 공개 저장소에 키가 노출되므로 Formspree처럼 공개 가능한 form ID 방식만 고려 |
 | GitHub API 레이트 리밋 | 무인증 호출, 시간당 60회. 같은 네트워크(공유 IP)에서 여러 사람이 열면 더 빨리 소진 | 응답을 `sessionStorage`에 캐시해 새로고침 시 재요청 줄이기, 또는 빌드 시점에 JSON 스냅샷을 생성해 정적 배포 |
 | 표시 개수 제한 | 필터당 최대 9개, 나머지는 카운트 문구로만 안내 | "더 보기" 버튼으로 `MAX_VISIBLE_REPOS`를 늘리는 상태 추가 |
-| 배포 URL | README와 이 문서에 플레이스홀더 | GitHub Pages 배포 후 URL 기입 |
-| 스크린샷 | 로컬 서버(`localhost`)에서 촬영한 3종만 있음 | 배포 URL에서 DevTools 디바이스 모드(1440 / 375)로 재촬영해 교체 |
+| 스크린샷 해상도 | 배포 URL에서 1064px 창 / 390px 프레임으로 촬영 | 제출 규격이 1440·375를 요구하면 DevTools 디바이스 모드로 재촬영 |
 | LinkedIn 등 추가 소셜 링크 | 이력서에 없어 GitHub·이메일만 | 필요 시 `index.html` footer `ul.footer-links`에 항목 추가 |
 | JS 생성 마크업의 인라인 style 5건 | §3 참조 | 클래스/`data-*` 속성으로 치환 가능 |
 | 이미지 최적화 | `profile.jpg` 640px JPEG 단일 소스 | AVIF/WebP + `picture` 폴백 |
@@ -443,10 +442,10 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 
 - [x] GitHub 저장소 생성 후 `main` 브랜치 푸시 — `.gitignore`로 `.serena/`·이력서 PDF 제외 (2026-09-04)
 - [x] Settings → Pages → `main` / `/ (root)` 배포 — https://newids.github.io/codyssey-b1-1/
-- [ ] 배포 URL에서 §6 QA-01~32 재실행, 특히 API 호출(QA-17~24)과 폰트 로딩 확인
+- [x] 배포 URL에서 핵심 확인 완료 (2026-09-04): Google Fonts 로딩, GitHub API 성공(저장소 31개, 필터 생성), 다크 모드 토글, 모바일 레이아웃, 콘솔 에러 0건
+- [ ] 배포 URL에서 §6 QA-01~32 전체 재실행 (나머지 항목)
 - [x] README.md에 배포 URL·저장소 URL 기입
-- [x] 스크린샷 3종(데스크톱 / 모바일 / 다크 모드) 캡처 후 README 표에 첨부 — 로컬 촬영본 (`images/screenshots/`)
-- [ ] 배포 후 배포 URL에서 스크린샷 3종 재촬영해 교체
+- [x] 스크린샷 4종(데스크톱 / 모바일 / 다크 모드 / Projects) — 배포 URL에서 촬영해 README 표에 첨부
 - [ ] 이 문서 §1.1 링크 표의 `[입력]` 채우기
 - [ ] `grep` 검증 명령(§3) 전부 재실행해 0건 확인
 - [ ] 공개 페이지에 전화번호·생년월일 등 개인정보가 없는지 최종 확인 (`grep -n "010-\|1966" index.html`)
