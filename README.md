@@ -4,8 +4,8 @@
 React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, 시맨틱 마크업 · CSS 변수 · Flexbox/Grid ·
 바닐라 JS DOM 조작 · GitHub REST API 연동을 직접 구현했습니다. (Codyssey B1-1 미션)
 
-- **배포 URL**: [GitHub Pages 배포 후 URL을 입력하세요]
-- **저장소**: [GitHub 저장소 URL을 입력하세요]
+- **배포 URL**: https://newids.github.io/codyssey-b1-1/
+- **저장소**: https://github.com/newids/codyssey-b1-1
 - **디자인 캔버스(Claude Design)**: https://claude.ai/code/artifact/a96c9e55-c9b6-49f7-af60-e68cd0eea9ee
 - **문서**: [미션 수행 가이드](docs/GUIDE.md) · [평가 설명서](docs/EVALUATION.md)
 
