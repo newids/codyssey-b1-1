@@ -85,9 +85,9 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | Skills (기술 스택 목록) | `index.html:184-237` — `article.skill-card` 4개, `ul.tag-list` | 스크롤 후 확인 | ✅ |
 | Projects (GitHub API 카드) | `index.html:239-254` 컨테이너 + `js/github.js` 렌더링 | 카드가 API 응답으로 채워지는지 확인 | ✅ |
 | Contact (문의 폼) | `index.html:256-303` `form#contactForm` | 스크롤 후 확인 | ✅ |
-| Footer (저작권, 소셜 링크) | `index.html:306-325` — `© 2026 최진석`, GitHub·이메일 링크 | 맨 아래 확인 | ✅ |
+| Footer (저작권, 소셜 링크) | `index.html:306-325` — `© 2026 JS Choi`, GitHub·이메일 링크 | 맨 아래 확인 | ✅ |
 | 네비게이션 앵커 링크 | `index.html:39-46` `a.nav-link[href="#about"...]` 5개 + `index.html:22` 로고 `#hero` | 클릭 시 해당 섹션으로 이동 | ✅ |
-| 모든 이미지에 의미 있는 `alt` | `index.html:97` `alt="최진석 프로필 사진"` (페이지 내 유일한 `img`) | `document.querySelectorAll('img:not([alt])').length` → 0 | ✅ |
+| 모든 이미지에 의미 있는 `alt` | `index.html:97` `alt="JS Choi 프로필 사진"` (페이지 내 유일한 `img`) | `document.querySelectorAll('img:not([alt])').length` → 0 | ✅ |
 | `label` ↔ `for-id` 매칭 | `index.html:279/280`, `285/286`, `291/292` — `contactName`, `contactEmail`, `contactMessage` | 라벨 클릭 시 해당 입력창 포커스 | ✅ |
 | (추가) Experience 섹션 | `index.html:132-182` `ol.timeline` — 요구사항 외 추가 섹션 | — | ✅ |
 

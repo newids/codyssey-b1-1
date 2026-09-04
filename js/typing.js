@@ -1,4 +1,4 @@
-const ROLES = ['앱 개발사 대표', '블록체인 CTO', '대학원 강사', '삼성SDS 운영파트장', 'AI/SW 기초를 다시 배우는 학생'];
+const ROLES = ['앱 개발사 대표', '블록체인 CTO', '대학원 강사', '대기업 시스템 운영파트장', 'AI/SW 기초를 다시 배우는 학생'];
 const TYPE_DELAY = 90;
 const ERASE_DELAY = 45;
 const HOLD_DELAY = 1600;

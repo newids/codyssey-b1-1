@@ -1,4 +1,4 @@
-# 최진석 포트폴리오 — 나를 소개하는 웹페이지 처음부터 만들기
+# JS Choi 포트폴리오 — 나를 소개하는 웹페이지 처음부터 만들기
 
 순수 HTML / CSS / JavaScript(ES6+)만으로 만든 반응형 개인 포트폴리오입니다.
 React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, 시맨틱 마크업 · CSS 변수 · Flexbox/Grid ·
