@@ -85,7 +85,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | Skills (기술 스택 목록) | `index.html:184-237` — `article.skill-card` 4개, `ul.tag-list` | 스크롤 후 확인 | ✅ |
 | Projects (GitHub API 카드) | `index.html:239-254` 컨테이너 + `js/github.js` 렌더링 | 카드가 API 응답으로 채워지는지 확인 | ✅ |
 | Contact (문의 폼) | `index.html:256-303` `form#contactForm` | 스크롤 후 확인 | ✅ |
-| Footer (저작권, 소셜 링크) | `index.html:306-325` — `© 2026 JS Choi`, GitHub·이메일 링크 | 맨 아래 확인 | ✅ |
+| Footer (저작권, 소셜 링크) | `index.html:306-325` — `© 2026 JS Choi`, GitHub 링크 (이메일은 개인정보 원칙에 따라 제외) | 맨 아래 확인 | ✅ |
 | 네비게이션 앵커 링크 | `index.html:39-46` `a.nav-link[href="#about"...]` 5개 + `index.html:22` 로고 `#hero` | 클릭 시 해당 섹션으로 이동 | ✅ |
 | 모든 이미지에 의미 있는 `alt` | `index.html:97` `alt="JS Choi 프로필 사진"` (페이지 내 유일한 `img`) | `document.querySelectorAll('img:not([alt])').length` → 0 | ✅ |
 | `label` ↔ `for-id` 매칭 | `index.html:279/280`, `285/286`, `291/292` — `contactName`, `contactEmail`, `contactMessage` | 라벨 클릭 시 해당 입력창 포커스 | ✅ |
@@ -431,7 +431,7 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 | GitHub API 레이트 리밋 | 무인증 호출, 시간당 60회. 같은 네트워크(공유 IP)에서 여러 사람이 열면 더 빨리 소진 | 응답을 `sessionStorage`에 캐시해 새로고침 시 재요청 줄이기, 또는 빌드 시점에 JSON 스냅샷을 생성해 정적 배포 |
 | 표시 개수 제한 | 필터당 최대 9개, 나머지는 카운트 문구로만 안내 | "더 보기" 버튼으로 `MAX_VISIBLE_REPOS`를 늘리는 상태 추가 |
 | 스크린샷 해상도 | 배포 URL에서 1064px 창 / 390px 프레임으로 촬영 | 제출 규격이 1440·375를 요구하면 DevTools 디바이스 모드로 재촬영 |
-| LinkedIn 등 추가 소셜 링크 | 이력서에 없어 GitHub·이메일만 | 필요 시 `index.html` footer `ul.footer-links`에 항목 추가 |
+| 연락 채널 | 개인정보 원칙에 따라 GitHub 링크만 (이메일·LinkedIn 없음) | 필요 시 `index.html` `ul.contact-channels` / footer `ul.footer-links`에 항목 추가 |
 | JS 생성 마크업의 인라인 style 5건 | §3 참조 | 클래스/`data-*` 속성으로 치환 가능 |
 | 이미지 최적화 | `profile.jpg` 640px JPEG 단일 소스 | AVIF/WebP + `picture` 폴백 |
 | 자동화 테스트 | 수동 QA만 존재 | Playwright로 QA-01~32 자동화, 스크린샷 회귀 |
