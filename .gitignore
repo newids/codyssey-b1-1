@@ -6,3 +6,6 @@
 .serena/
 .DS_Store
 .vscode/
+
+# 로컬 시크릿
+.env

@@ -27,7 +27,7 @@ js/reveal.js        IntersectionObserver threshold 0.2 스크롤 애니메이션
 js/typing.js        Hero 타이핑 효과 — 보너스 (41줄)
 js/github.js        GitHub API 호출, loading/success/error/empty 렌더링, 언어 필터 — 보너스 포함 (207줄)
 js/contactForm.js   문의 폼 유효성 검사 (75줄)
-images/profile.jpg  프로필 사진 (640px, 이력서 PDF에서 추출·축소)
+images/profile.jpg  프로필 이미지 (640×800, Gemini로 생성한 수채화 캐릭터 일러스트를 4:5로 크롭 — 실제 사진 미사용)
 images/screenshots/ README용 스크린샷 3종 (desktop-light / mobile-light / desktop-dark)
 docs/GUIDE.md       미션 수행 가이드
 docs/EVALUATION.md  이 문서
@@ -87,7 +87,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | Contact (문의 폼) | `index.html:256-303` `form#contactForm` | 스크롤 후 확인 | ✅ |
 | Footer (저작권, 소셜 링크) | `index.html:306-325` — `© 2026 JS Choi`, GitHub 링크 (이메일은 개인정보 원칙에 따라 제외) | 맨 아래 확인 | ✅ |
 | 네비게이션 앵커 링크 | `index.html:39-46` `a.nav-link[href="#about"...]` 5개 + `index.html:22` 로고 `#hero` | 클릭 시 해당 섹션으로 이동 | ✅ |
-| 모든 이미지에 의미 있는 `alt` | `index.html:97` `alt="JS Choi 프로필 사진"` (페이지 내 유일한 `img`) | `document.querySelectorAll('img:not([alt])').length` → 0 | ✅ |
+| 모든 이미지에 의미 있는 `alt` | `index.html:97` `alt="JS Choi 캐릭터 일러스트 — …"` (페이지 내 유일한 `img`, 장면을 설명하는 alt) | `document.querySelectorAll('img:not([alt])').length` → 0 | ✅ |
 | `label` ↔ `for-id` 매칭 | `index.html:279/280`, `285/286`, `291/292` — `contactName`, `contactEmail`, `contactMessage` | 라벨 클릭 시 해당 입력창 포커스 | ✅ |
 | (추가) Experience 섹션 | `index.html:132-182` `ol.timeline` — 요구사항 외 추가 섹션 | — | ✅ |
 
