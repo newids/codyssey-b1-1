@@ -31,6 +31,7 @@ images/profile.jpg  프로필 이미지 (640×800, Gemini로 생성한 수채화
 images/screenshots/ README용 스크린샷 3종 (desktop-light / mobile-light / desktop-dark)
 docs/GUIDE.md       미션 수행 가이드
 docs/EVALUATION.md  이 문서
+docs/OBJECTIVES.md  과제 목표 6개 상세 답변 (원리 설명 + 소스 인용)
 README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, 스크린샷
 ```
 
@@ -361,6 +362,8 @@ const renderSuccess = () => {
 ---
 
 ## 5. 과제 목표 6개 — 구술 답변 초안
+
+> 각 답변의 원리 설명·소스 인용·추가 질문까지 담은 상세 버전은 [docs/OBJECTIVES.md](OBJECTIVES.md)를 본다. 아래는 30초 요약본이다.
 
 **Q1. HTML에서 시맨틱 태그를 왜 사용하는지, 어떤 기준으로 구조를 설계했는지.**
 시맨틱 태그는 브라우저·검색엔진·보조기기에 "이 영역이 무엇인지"를 알려준다. `div`만 쓰면 시각적으로는 같아도 스크린리더는 랜드마크를 찾지 못하고, 검색엔진은 본문과 내비게이션을 구분하지 못한다. 이 페이지는 페이지 전체를 `header`(내비게이션) / `main`(콘텐츠) / `footer`(저작권·링크) 세 랜드마크로 나누고, `main` 안에서 독립적으로 이동 가능한 주제 단위마다 `section`을 두었으며 각 `section`은 `aria-labelledby`로 자기 제목(`h2`)과 연결했다. 카드처럼 그 자체로 완결된 콘텐츠(기술 카드, 저장소 카드)는 `article`을 썼다. 경력은 시간 순서가 의미 있으므로 `ul`이 아니라 `ol`로, 사실/값 쌍(경력 30년 등)은 `dl/dt/dd`로 마크업했다. 폼은 `label for`로 입력과 연결하고 에러 문구에 `aria-live`를 주어 상태 변화가 낭독되도록 했다.

@@ -7,7 +7,7 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 - **배포 URL**: https://newids.github.io/codyssey-b1-1/
 - **저장소**: https://github.com/newids/codyssey-b1-1
 - **디자인 캔버스(Claude Design)**: https://claude.ai/code/artifact/a96c9e55-c9b6-49f7-af60-e68cd0eea9ee
-- **문서**: [미션 수행 가이드](docs/GUIDE.md) · [평가 설명서](docs/EVALUATION.md)
+- **문서**: [미션 수행 가이드](docs/GUIDE.md) · [평가 설명서](docs/EVALUATION.md) · [과제 목표 6개 상세 답변](docs/OBJECTIVES.md)
 
 ## 스크린샷
 
