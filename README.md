@@ -21,6 +21,19 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 
 > 배포 URL( https://newids.github.io/codyssey-b1-1/ )에서 캡쳐. 2026-09-04.
 
+## 인포그래픽
+
+과제 목표 6개를 주제별로 정리한 인포그래픽입니다. 각 주제마다 ChatGPT · Gemini 두 가지 버전이 있으며, 상세 답변은 [과제 목표 6개 상세 답변](docs/OBJECTIVES.md)의 각 절 끝에 함께 실려 있습니다.
+
+| 주제 | ChatGPT | Gemini |
+| --- | --- | --- |
+| Q1. 시맨틱 태그 | ![Q1 시맨틱 태그 인포그래픽 (ChatGPT)](infographic/1_시맨틱태그_ChatGPT.png) | ![Q1 시맨틱 태그 인포그래픽 (Gemini)](infographic/1_시맨틱태그_Gemini.png) |
+| Q2. Flexbox / Grid | ![Q2 Flexbox / Grid 인포그래픽 (ChatGPT)](infographic/2_FlexboxGrid_ChatGPT.png) | ![Q2 Flexbox / Grid 인포그래픽 (Gemini)](infographic/2_FlexboxGrid_Gemini.png) |
+| Q3. querySelector | ![Q3 querySelector 인포그래픽 (ChatGPT)](infographic/3_querySelector_ChatGPT.png) | ![Q3 querySelector 인포그래픽 (Gemini)](infographic/3_querySelector_Gemini.png) |
+| Q4. 화살표 함수 | ![Q4 화살표 함수 인포그래픽 (ChatGPT)](infographic/4_화살표함수_ChatGPT.png) | ![Q4 화살표 함수 인포그래픽 (Gemini)](infographic/4_화살표함수_Gemini.png) |
+| Q5. fetch · async/await | ![Q5 fetch · async/await 인포그래픽 (ChatGPT)](infographic/5_fetch_async_await_ChatGPT.png) | ![Q5 fetch · async/await 인포그래픽 (Gemini)](infographic/5_fetch_async_await_Gemini.png) |
+| Q6. DOM Tree | ![Q6 DOM Tree 인포그래픽 (ChatGPT)](infographic/6_DOMTree_ChatGPT.png) | ![Q6 DOM Tree 인포그래픽 (Gemini)](infographic/6_DOMTree_Gemini.png) |
+
 ## 사용 기술
 
 | 영역 | 내용 |
@@ -43,7 +56,8 @@ js/typing.js        Hero 타이핑 효과 (보너스)
 js/github.js        GitHub API 호출, 로딩/성공/에러/빈 상태 렌더링, 언어별 필터 (보너스)
 js/contactForm.js   문의 폼 유효성 검사
 images/profile.jpg  프로필 사진
-docs/               미션 수행 가이드 · 평가 설명서
+docs/               미션 수행 가이드 · 평가 설명서 · 과제 목표 상세 답변
+infographic/        과제 목표 6개 인포그래픽 (ChatGPT · Gemini 각 1장)
 ```
 
 ## 주요 기능과 기준값

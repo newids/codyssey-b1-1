@@ -180,6 +180,12 @@ Mission-B1-1.md §3 "과제 목표"에 적힌 여섯 항목을 이 저장소의 
 - **Q. `data-reveal` 같은 `data-*` 속성은 시맨틱을 해치지 않나?** — `data-*`는 표준이 스크립트용 사설 데이터 자리로 정해 둔 속성이라 접근성 트리나 검색에 영향이 없다. 클래스 이름에 `js-` 접두어를 붙이는 관습과 목적이 같다.
 - **Q. Hero만 `h1`이고 나머지는 `h2`인 이유는?** — 페이지의 주제("30년째 만들고 있습니다")가 하나이고 나머지는 그 하위 주제이기 때문이다. `h1`이 여럿이면 어느 것이 페이지 제목인지 모호해진다.
 
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q1 시맨틱 태그 인포그래픽 (ChatGPT)](../infographic/1_시맨틱태그_ChatGPT.png) | ![Q1 시맨틱 태그 인포그래픽 (Gemini)](../infographic/1_시맨틱태그_Gemini.png) |
+
 ---
 
 ## Q2. Flexbox와 Grid의 차이, 언제 무엇을 선택하는지
@@ -415,6 +421,12 @@ Flexbox는 한 축(행 또는 열)을 따라 항목을 배치하고 정렬하는
 - **Q. 브레이크포인트를 768과 1024로 정한 근거는?** — 미션이 지정한 값이다. 실무에서는 내용이 깨지는 지점에 브레이크포인트를 두는 것이 원칙이며, 이 페이지는 `clamp()`와 `auto-fit`을 함께 써서 브레이크포인트 사이에서도 유동적으로 변한다.
 - **Q. `order`를 쓰면 접근성 문제가 없나?** — 화면 순서와 DOM 순서(탭 순서)가 어긋나면 키보드 사용자가 혼란을 느낄 수 있다. 여기서는 `.nav-controls`(테마 버튼)를 맨 끝으로 보내는 정도라, 탭 순서(로고 → 테마 버튼 → 메뉴)와 화면 순서(로고 → 메뉴 → 테마 버튼)의 차이가 작다고 판단했다. 큰 폭의 재배치에는 쓰지 않는 것이 맞다.
 
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q2 Flexbox / Grid 인포그래픽 (ChatGPT)](../infographic/2_FlexboxGrid_ChatGPT.png) | ![Q2 Flexbox / Grid 인포그래픽 (Gemini)](../infographic/2_FlexboxGrid_Gemini.png) |
+
 ---
 ## Q3. querySelector로 DOM을 선택하고 addEventListener로 이벤트를 연결하는 흐름
 
@@ -617,6 +629,12 @@ contactForm.addEventListener('submit', (event) => {
 - **Q. `keydown`을 `document`에 달면 입력창에서 Esc를 눌러도 메뉴가 닫히나?** — 그렇다. 다만 조건이 "메뉴가 열려 있을 때"뿐이므로, 메뉴가 닫힌 상태에서 입력 중에 Esc를 눌러도 아무 일도 일어나지 않는다.
 - **Q. `classList.toggle`의 두 번째 인수는 무엇인가?** — 강제 플래그다. `true`면 무조건 추가, `false`면 무조건 제거한다. 조건식을 넘기면 `if/else` 없이 상태를 반영할 수 있다.
 
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q3 querySelector 인포그래픽 (ChatGPT)](../infographic/3_querySelector_ChatGPT.png) | ![Q3 querySelector 인포그래픽 (Gemini)](../infographic/3_querySelector_Gemini.png) |
+
 ---
 
 ## Q4. 화살표 함수·구조분해·배열 메서드가 왜 필요하고 어떻게 썼는지
@@ -813,6 +831,12 @@ const escapeHtml = (value) =>
 - **Q. `map`을 반복 작업용으로 써도 되나?** — 동작은 하지만 반환된 배열을 버리게 되어 코드를 읽는 사람이 혼란스럽다. 반환값이 필요 없으면 `forEach`를 쓴다.
 - **Q. 구조분해에서 없는 키를 꺼내면?** — `undefined`가 된다. 오류가 나지 않으므로 기본값(`= '—'`)이나 `??`로 처리한다. 이 코드는 `language ?? '—'`로 처리했다.
 - **Q. `Object.assign(state, patch)`는 원본을 바꾸지 않는다는 원칙에 어긋나지 않나?** — 상태 객체 자체는 바꾼다. 대신 상태 안의 배열은 바꾸지 않고 `filter`나 `slice`로 새 배열을 만들어 쓰며, 상태를 바꾸는 경로를 `setState` 하나로 제한했다. React처럼 상태 객체를 통째로 교체하는 방식이 더 엄격하지만, 이 규모에서는 변경 경로를 한 곳으로 모으는 것으로 충분하다고 판단했다.
+
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q4 화살표 함수 인포그래픽 (ChatGPT)](../infographic/4_화살표함수_ChatGPT.png) | ![Q4 화살표 함수 인포그래픽 (Gemini)](../infographic/4_화살표함수_Gemini.png) |
 
 ---
 ## Q5. fetch와 async/await로 데이터를 가져오고 로딩/성공/실패를 UI로 표현한 방법
@@ -1062,6 +1086,12 @@ HTML에는 빈 컨테이너 네 개만 있다. HTML 파싱이 끝나면 `github.
 - **Q. `console.error`는 배포 전에 지워야 하나?** — 사용자에게는 보이지 않고 개발자 도구에서만 확인된다. 실패 원인(상태 코드, 스택)을 남기는 유일한 곳이다. 로깅 서비스가 있다면 그쪽으로 보내는 편이 좋다.
 - **Q. `per_page=100`인데 저장소가 100개를 넘으면?** — 첫 페이지만 받는다. `Link` 헤더의 `rel="next"`를 따라가는 페이지 처리가 필요하다. 현재 계정은 33개라 해당하지 않는다.
 
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q5 fetch · async/await 인포그래픽 (ChatGPT)](../infographic/5_fetch_async_await_ChatGPT.png) | ![Q5 fetch · async/await 인포그래픽 (Gemini)](../infographic/5_fetch_async_await_Gemini.png) |
+
 ---
 
 ## Q6. 이벤트 → 상태 변경 → DOM 업데이트가 어떻게 연결되는지 (React의 기초)
@@ -1220,6 +1250,12 @@ function Projects() {
 - **Q. `Object.assign(state, patch)`와 React의 `setState`는 무엇이 다른가?** — React는 새 객체를 만들어 교체하므로 이전 상태와 참조 비교(`===`)로 변경 여부를 알 수 있다. 이 코드는 같은 객체를 수정하므로 그런 비교가 불가능하지만, 변경 직후 항상 렌더링하므로 비교가 필요 없다.
 - **Q. 상태가 다섯 흐름에 흩어져 있는데 하나로 합쳐야 하지 않나?** — 서로 관계없는 상태(테마, 메뉴, API, 폼)는 분리하는 편이 맞다. React에서도 컴포넌트마다 `useState`를 두고 전역 하나로 모으지 않는다. 공유가 필요해질 때 합친다.
 - **Q. 이 구조를 상태 머신이라 불러도 되나?** — API 흐름은 `idle → loading → success | error → (retry) loading`으로 전이가 정해져 있어 상태 머신에 가깝다. 폼과 테마는 전이 제약이 없는 단순 상태다. 전이를 제한하고 싶다면 `setState`에서 허용되지 않는 전이를 거부하면 된다.
+
+### 인포그래픽
+
+| ChatGPT | Gemini |
+| --- | --- |
+| ![Q6 DOM Tree 인포그래픽 (ChatGPT)](../infographic/6_DOMTree_ChatGPT.png) | ![Q6 DOM Tree 인포그래픽 (Gemini)](../infographic/6_DOMTree_Gemini.png) |
 
 ---
 
