@@ -13,7 +13,7 @@
 | GitHub 저장소 URL | https://github.com/newids/codyssey-b1-1 |
 | 배포 URL (GitHub Pages) | https://newids.github.io/codyssey-b1-1/ |
 | 디자인 캔버스 (Claude Design) | https://claude.ai/code/artifact/a96c9e55-c9b6-49f7-af60-e68cd0eea9ee |
-| 스크린샷 (데스크톱 / 모바일 / 다크 / Projects) | `images/screenshots/desktop-light.jpg` · `mobile-light.jpg` · `desktop-dark.jpg` · `desktop-projects.jpg` — 배포 URL에서 촬영 (2026-09-04), README 표에 첨부됨 |
+| 스크린샷 (데스크톱 / 모바일 / 다크 / Projects) | `images/screenshots/desktop-light.jpg` · `mobile-light.jpg` · `desktop-dark.jpg` · `desktop-projects.jpg` — 배포 URL에서 캡쳐 (2026-09-04), README 표에 첨부됨 |
 
 ### 1.2 폴더 구조
 
@@ -193,7 +193,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | 배포 URL에서 인터랙션 동작 | — | §6 QA-06~14 | ⬜ |
 | 배포 URL에서 GitHub API 연동 | — | §6 QA-15~19 (HTTPS 페이지에서 HTTPS API 호출이므로 mixed content 문제 없음) | ⬜ |
 | 배포 URL에서 폼 유효성 검사 | — | §6 QA-20~23 | ⬜ |
-| README: 설명·사용 기술·배포 URL·스크린샷 | `README.md` — 설명·기술·기준값·구조·배포 절차·스크린샷 3종(로컬 촬영) 작성 완료, **배포 URL·저장소 URL은 플레이스홀더** | README 확인 | ⬜ |
+| README: 설명·사용 기술·배포 URL·스크린샷 | `README.md` — 설명·기술·기준값·구조·배포 절차·스크린샷 3종(로컬 캡쳐) 작성 완료, **배포 URL·저장소 URL은 플레이스홀더** | README 확인 | ⬜ |
 
 ### 2.11 보너스 과제
 
@@ -433,7 +433,7 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 | 폼 실제 전송 | 검증 후 화면 메시지만 표시, 어디에도 전송되지 않음 | Formspree 엔드포인트로 `fetch(POST)` 추가. 공개 저장소에 키가 노출되므로 Formspree처럼 공개 가능한 form ID 방식만 고려 |
 | GitHub API 레이트 리밋 | 무인증 호출, 시간당 60회. 같은 네트워크(공유 IP)에서 여러 사람이 열면 더 빨리 소진 | 응답을 `sessionStorage`에 캐시해 새로고침 시 재요청 줄이기, 또는 빌드 시점에 JSON 스냅샷을 생성해 정적 배포 |
 | 표시 개수 제한 | 필터당 최대 9개, 나머지는 카운트 문구로만 안내 | "더 보기" 버튼으로 `MAX_VISIBLE_REPOS`를 늘리는 상태 추가 |
-| 스크린샷 해상도 | 배포 URL에서 1064px 창 / 390px 프레임으로 촬영 | 제출 규격이 1440·375를 요구하면 DevTools 디바이스 모드로 재촬영 |
+| 스크린샷 해상도 | 배포 URL에서 1064px 창 / 390px 프레임으로 캡쳐 | 제출 규격이 1440·375를 요구하면 DevTools 디바이스 모드로 다시 캡쳐 |
 | 연락 채널 | 개인정보 원칙에 따라 GitHub 링크만 (이메일·LinkedIn 없음) | 필요 시 `index.html` `ul.contact-channels` / footer `ul.footer-links`에 항목 추가 |
 | JS 생성 마크업의 인라인 style 5건 | §3 참조 | 클래스/`data-*` 속성으로 치환 가능 |
 | 이미지 최적화 | `profile.jpg` 640px JPEG 단일 소스 | AVIF/WebP + `picture` 폴백 |
@@ -448,7 +448,7 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 - [x] 배포 URL에서 핵심 확인 완료 (2026-09-04): Google Fonts 로딩, GitHub API 성공(저장소 31개, 필터 생성), 다크 모드 토글, 모바일 레이아웃, 콘솔 에러 0건
 - [ ] 배포 URL에서 §6 QA-01~32 전체 재실행 (나머지 항목)
 - [x] README.md에 배포 URL·저장소 URL 기입
-- [x] 스크린샷 4종(데스크톱 / 모바일 / 다크 모드 / Projects) — 배포 URL에서 촬영해 README 표에 첨부
+- [x] 스크린샷 4종(데스크톱 / 모바일 / 다크 모드 / Projects) — 배포 URL에서 캡쳐해 README 표에 첨부
 - [ ] 이 문서 §1.1 링크 표의 `[입력]` 채우기
 - [ ] `grep` 검증 명령(§3) 전부 재실행해 0건 확인
 - [ ] 공개 페이지에 전화번호·생년월일 등 개인정보가 없는지 최종 확인 (`grep -n "010-\|1966" index.html`)

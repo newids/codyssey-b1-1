@@ -2,7 +2,7 @@
 
 순수 HTML / CSS / JavaScript(ES6+)만으로 만든 반응형 개인 포트폴리오입니다.
 React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, 시맨틱 마크업 · CSS 변수 · Flexbox/Grid ·
-바닐라 JS DOM 조작 · GitHub REST API 연동을 직접 구현했습니다. (Codyssey B1-1 미션)
+바닐라 JS DOM 조작 · GitHub REST API 연동을 구현했습니다. (Codyssey B1-1 미션)
 
 - **배포 URL**: https://newids.github.io/codyssey-b1-1/
 - **저장소**: https://github.com/newids/codyssey-b1-1
@@ -19,7 +19,7 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 | --- |
 | ![Projects 섹션](images/screenshots/desktop-projects.jpg) |
 
-> 배포 URL(https://newids.github.io/codyssey-b1-1/)에서 촬영. 2026-09-04.
+> 배포 URL(https://newids.github.io/codyssey-b1-1/)에서 캡쳐. 2026-09-04.
 
 ## 사용 기술
 
