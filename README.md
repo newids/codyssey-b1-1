@@ -19,7 +19,7 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 | --- |
 | ![Projects 섹션](images/screenshots/desktop-projects.jpg) |
 
-> 배포 URL(https://newids.github.io/codyssey-b1-1/)에서 캡쳐. 2026-09-04.
+> 배포 URL( https://newids.github.io/codyssey-b1-1/ )에서 캡쳐. 2026-09-04.
 
 ## 사용 기술
 
