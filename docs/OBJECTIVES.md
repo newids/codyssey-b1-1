@@ -559,7 +559,7 @@ const revealObserver = new IntersectionObserver(
 revealTargets.forEach((target) => revealObserver.observe(target));
 ```
 
-"요소가 20% 이상 보이면 클래스를 붙인다"는 조건을 스크롤 처리기로 구현하면, 스크롤할 때마다 39개 요소의 `getBoundingClientRect()`를 계산해야 한다. `IntersectionObserver`를 쓰면 브라우저가 레이아웃을 계산하는 시점에 교차 여부를 알려 주므로 별도 계산 비용이 거의 들지 않는다. 한 번 보인 요소는 `unobserve`로 관찰 대상에서 빼서, 화면 밖으로 나갔다가 돌아와도 애니메이션이 반복되지 않는다. 애니메이션을 적용할 요소는 HTML에서 `data-reveal` 속성으로 표시하고 `[data-reveal]` 속성 선택자로 모은다.
+"요소가 20% 이상 보이면 클래스를 붙인다"는 조건을 스크롤 처리기로 구현하면, 스크롤할 때마다 33개 요소의 `getBoundingClientRect()`를 계산해야 한다. `IntersectionObserver`를 쓰면 브라우저가 레이아웃을 계산하는 시점에 교차 여부를 알려 주므로 별도 계산 비용이 거의 들지 않는다. 한 번 보인 요소는 `unobserve`로 관찰 대상에서 빼서, 화면 밖으로 나갔다가 돌아와도 애니메이션이 반복되지 않는다. 애니메이션을 적용할 요소는 HTML에서 `data-reveal` 속성으로 표시하고 `[data-reveal]` 속성 선택자로 모은다.
 
 **아직 존재하지 않는 버튼에는 이벤트 위임으로 대응한다.** `js/github.js:170-174`
 

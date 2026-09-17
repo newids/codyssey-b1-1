@@ -18,8 +18,8 @@
 ### 1.2 폴더 구조
 
 ```
-index.html          메인 페이지 — header/nav/main/section×6/footer (339줄)
-css/style.css       디자인 토큰(:root, [data-theme="dark"]), 레이아웃, 반응형, 애니메이션 (1437줄)
+index.html          메인 페이지 — header/nav/main/section×6/footer (330줄)
+css/style.css       디자인 토큰(:root, [data-theme="dark"]), 레이아웃, 반응형, 애니메이션 (1452줄)
 js/theme.js         다크 모드 토글 + localStorage + prefers-color-scheme 감지 (35줄)
 js/nav.js           햄버거 메뉴, Esc 닫기, 스크롤 60px 내비게이션 스타일 (36줄)
 js/scrollTop.js     스크롤 300px 맨 위로 버튼 (14줄)
@@ -28,10 +28,12 @@ js/typing.js        Hero 타이핑 효과 — 보너스 (41줄)
 js/github.js        GitHub API 호출, loading/success/error/empty 렌더링, 언어 필터 — 보너스 포함 (207줄)
 js/contactForm.js   문의 폼 유효성 검사 (75줄)
 images/profile.jpg  프로필 이미지 (640×800, Gemini로 생성한 수채화 캐릭터 일러스트를 4:5로 크롭 — 실제 사진 미사용)
-images/screenshots/ README용 스크린샷 3종 (desktop-light / mobile-light / desktop-dark)
+images/screenshots/ README용 스크린샷 4종 (desktop-light / mobile-light / desktop-dark / desktop-projects)
 docs/GUIDE.md       미션 수행 가이드
 docs/EVALUATION.md  이 문서
 docs/OBJECTIVES.md  과제 목표 6개 상세 답변 (원리 설명 + 소스 인용)
+docs/OBJECTIVES-BEGINNER.md  과제 목표 6개 초보 개발자용 5분 답변
+infographic/        과제 목표 6개 인포그래픽 12장 (ChatGPT · Gemini 각 1장)
 README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, 스크린샷
 ```
 
@@ -54,7 +56,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | Projects 최대 표시 개수 | **9개** (fork 제외, 최근 업데이트 순) | `js/github.js:3` `MAX_VISIBLE_REPOS = 9` |
 | 로딩 스켈레톤 카드 수 | 3개 | `js/github.js:4` `SKELETON_COUNT = 3` |
 | GitHub API 무인증 한도 | 시간당 60회 (403 시 에러 UI) | `js/github.js:178-182` `describeHttpError()` |
-| 브레이크포인트 | 768px(태블릿), 1024px(데스크톱) | `css/style.css:1228`, `css/style.css:1348` |
+| 브레이크포인트 | 768px(태블릿), 1024px(데스크톱) | `css/style.css:1233`, `css/style.css:1357` (1280px 블록 `:1421`은 컨테이너 여백 조정용) |
 | 다크 모드 저장 키 | `localStorage['portfolio-theme']` | `js/theme.js:1` |
 
 ---
@@ -68,7 +70,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | 요구사항 | 구현 위치 | 확인 방법 | 상태 |
 | --- | --- | --- | --- |
 | `index.html` / `css/` / `js/` / `images/` 역할 분리 | 루트 `index.html`, `css/style.css`, `js/*.js` 7개, `images/profile.jpg` | `ls -R`로 구조 확인 | ✅ |
-| 외부 스타일시트·JS를 HTML에 올바르게 연결 | `index.html:14` `<link rel="stylesheet" href="css/style.css">`, `index.html:331-337` `<script defer src="js/...">` 7개 | DevTools Network 탭에서 css 1개, js 7개가 200으로 로드되는지 확인 | ✅ |
+| 외부 스타일시트·JS를 HTML에 올바르게 연결 | `index.html:14` `<link rel="stylesheet" href="css/style.css">`, `index.html:322-328` `<script defer src="js/...">` 7개 | DevTools Network 탭에서 css 1개, js 7개가 200으로 로드되는지 확인 | ✅ |
 | VS Code + Live Server 개발 환경 | 정적 파일만 사용하므로 별도 빌드 없음 | Live Server로 `index.html` 열기 (또는 `python3 -m http.server`) | ✅ |
 
 ### 2.2 HTML 구조 (시맨틱 마크업)
@@ -101,7 +103,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | `[data-theme="dark"]` 변수 별도 정의 | `css/style.css:61-85` — 색상·그림자 토큰만 재정의 (레이아웃 토큰은 공유) | DevTools에서 `html[data-theme=dark]` 계산값 확인 | ✅ |
 | 네비게이션 Flexbox (로고 왼쪽, 메뉴 오른쪽) | `css/style.css:319-327` `.navbar { display:flex; justify-content:space-between }` + 데스크톱 `.nav-menu { margin-left:auto }` (`:1248`) | 768px 이상에서 로고 좌·메뉴 우 | ✅ |
 | Projects 카드 Grid (`auto-fit`, `minmax`) | `css/style.css:899-903` `.projects-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) }` | 창 너비를 줄이면 3열→2열→1열로 자동 재배치 | ✅ |
-| 모바일 퍼스트 | 기본 스타일이 모바일, `@media (min-width: 768px)`(`:1228`), `(min-width: 1024px)`(`:1348`)로 확장 | 미디어 쿼리에 `max-width`가 없음 | ✅ |
+| 모바일 퍼스트 | 기본 스타일이 모바일, `@media (min-width: 768px)`(`:1233`), `(min-width: 1024px)`(`:1357`)로 확장 | 미디어 쿼리에 `max-width`가 없음 | ✅ |
 | 브레이크포인트 768px / 1024px | 위와 동일 | `grep -n "@media" css/style.css` | ✅ |
 | 모바일에서 네비게이션 숨김 + 햄버거 버튼 | `.nav-menu`(`:423-437`) 기본 `visibility:hidden; opacity:0`, `.nav-toggle`(`:390`) 기본 표시 → 768px 이상에서 `.nav-toggle { display:none }`(`:1233`), `.nav-menu { position:static; visibility:visible }`(`:1240`) | 767px 이하에서 햄버거만 보임 | ✅ |
 | 버튼·카드 hover + transition | `.btn:hover`(`:258`) `translateY(-2px)`, `.skill-card:hover`(`:727`), `.project-card:hover`(`:922`) `translateY(-4px)` + `box-shadow` 변경, 모두 `transition` 선언 | 마우스 오버 시 살짝 떠오름 | ✅ |
@@ -111,7 +113,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 
 | 요구사항 | 구현 위치 | 확인 방법 | 상태 |
 | --- | --- | --- | --- |
-| JS를 `defer`로 연결 | `index.html:331-337` 7개 모두 `defer` | HTML 확인 | ✅ |
+| JS를 `defer`로 연결 | `index.html:322-328` 7개 모두 `defer` | HTML 확인 | ✅ |
 | `var` 대신 `const`, `let`만 사용 | 전 JS 파일. `let`은 `js/typing.js:27` (`roleIndex`) 1곳, 나머지는 `const` | `grep -rn "\bvar\b" js/` → 0건 | ✅ |
 | HTML `onclick` 미사용, `addEventListener` 사용 | `theme.js:23,31`, `nav.js:15,21,24,35`, `scrollTop.js:9,12`, `github.js:129,170`, `contactForm.js:52,60` | `grep -rn "onclick" index.html js/` → 0건 | ✅ |
 | `querySelector` / `querySelectorAll` | `nav.js:6` `querySelectorAll('.nav-link')`, `reveal.js:3` `querySelectorAll('[data-reveal]')`, `contactForm.js:39` `closest('.form-field')`; 단일 요소는 `getElementById` 병용 | — | ✅ |
@@ -132,7 +134,7 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 | 스크롤 탑 버튼 (300px) | `js/scrollTop.js` — `is-visible` 토글, 클릭 시 `window.scrollTo({ top: 0, behavior: 'smooth' })` | 300px 이상 스크롤 시 우하단 버튼 표시 | ✅ |
 | 네비게이션 스타일 변경 (60px) | `js/nav.js:31-36` `updateHeaderStyle()` → `.site-header.is-scrolled` (`css:313`) 배경·테두리·그림자 | 60px 이상 스크롤 시 헤더가 surface 색으로 변경 | ✅ |
 | 다크 모드 토글 + localStorage 유지 | `js/theme.js:9-13` `applyTheme()`, `:23-29` 클릭 시 저장, `:15-19` 초기 로드 시 복원 | 토글 → 새로고침 → 유지 | ✅ |
-| 스크롤 애니메이션 (threshold ≥ 0.2) | `js/reveal.js` — `threshold: 0.2`, `[data-reveal]` 요소 39개에 `is-visible` 추가 후 `unobserve` | 스크롤 시 섹션이 아래에서 떠오름 | ✅ |
+| 스크롤 애니메이션 (threshold ≥ 0.2) | `js/reveal.js` — `threshold: 0.2`, `[data-reveal]` 요소 33개에 `is-visible` 추가 후 `unobserve` | 스크롤 시 섹션이 아래에서 떠오름 | ✅ |
 | 폼 UX | 2.6 참조 | — | ✅ |
 
 ### 2.6 폼 UX
@@ -188,12 +190,12 @@ README.md           프로젝트 설명, 사용 기술, 기준값, 배포 URL, �
 
 | 요구사항 | 구현 위치 | 확인 방법 | 상태 |
 | --- | --- | --- | --- |
-| GitHub Pages 배포 | 정적 파일만 있어 `main` 브랜치 루트 배포로 충분 (README §GitHub Pages 배포) | 배포 URL 접속 | ⬜ |
-| 배포 URL에서 반응형 동작 | — | §6 QA-01~05를 배포 URL에서 재실행 | ⬜ |
-| 배포 URL에서 인터랙션 동작 | — | §6 QA-06~14 | ⬜ |
-| 배포 URL에서 GitHub API 연동 | — | §6 QA-15~19 (HTTPS 페이지에서 HTTPS API 호출이므로 mixed content 문제 없음) | ⬜ |
-| 배포 URL에서 폼 유효성 검사 | — | §6 QA-20~23 | ⬜ |
-| README: 설명·사용 기술·배포 URL·스크린샷 | `README.md` — 설명·기술·기준값·구조·배포 절차·스크린샷 3종(로컬 캡쳐) 작성 완료, **배포 URL·저장소 URL은 플레이스홀더** | README 확인 | ⬜ |
+| GitHub Pages 배포 | `main` 브랜치 루트 배포 — https://newids.github.io/codyssey-b1-1/ (README §GitHub Pages 배포) | 배포 URL 접속 | ✅ 2026-09-04 |
+| 배포 URL에서 반응형 동작 | — | §6 QA-01~05를 배포 URL에서 재실행 | ✅ 모바일 레이아웃 확인 (2026-09-04), 전체 재실행은 §8 |
+| 배포 URL에서 인터랙션 동작 | — | §6 QA-06~14 | ✅ 다크 모드 토글 확인 (2026-09-04), 전체 재실행은 §8 |
+| 배포 URL에서 GitHub API 연동 | — | §6 QA-17~24 (HTTPS 페이지에서 HTTPS API 호출이므로 mixed content 문제 없음) | ✅ 저장소 31개 로드, 필터 생성 확인 (2026-09-04) |
+| 배포 URL에서 폼 유효성 검사 | — | §6 QA-25~28 | ⬜ 배포 URL에서 재실행 필요 |
+| README: 설명·사용 기술·배포 URL·스크린샷 | `README.md` — 설명·기술·기준값·구조·배포 절차·배포 URL·저장소 URL·스크린샷 4종(배포 URL에서 캡쳐) 작성 완료 | README 확인 | ✅ |
 
 ### 2.11 보너스 과제
 
@@ -361,9 +363,11 @@ const renderSuccess = () => {
 
 ---
 
-## 5. 과제 목표 6개 — 구술 답변 초안
+## 5. 구술 답변 초안 — 과제 목표 6개와 평가 문항 15개
 
-> 각 답변의 원리 설명·소스 인용·추가 질문까지 담은 상세 버전은 [docs/OBJECTIVES.md](OBJECTIVES.md)를 본다. 아래는 30초 요약본이다.
+### 5.1 과제 목표 6개 (30초 요약)
+
+> 각 답변의 원리 설명·소스 인용·추가 질문까지 담은 상세 버전은 [docs/OBJECTIVES.md](OBJECTIVES.md), 초보 개발자 눈높이의 5분 버전은 [docs/OBJECTIVES-BEGINNER.md](OBJECTIVES-BEGINNER.md)를 본다. 아래는 30초 요약본이다.
 
 **Q1. HTML에서 시맨틱 태그를 왜 사용하는지, 어떤 기준으로 구조를 설계했는지.**
 시맨틱 태그는 브라우저·검색엔진·보조기기에 "이 영역이 무엇인지"를 알려준다. `div`만 쓰면 시각적으로는 같아도 스크린리더는 랜드마크를 찾지 못하고, 검색엔진은 본문과 내비게이션을 구분하지 못한다. 이 페이지는 페이지 전체를 `header`(내비게이션) / `main`(콘텐츠) / `footer`(저작권·링크) 세 랜드마크로 나누고, `main` 안에서 독립적으로 이동 가능한 주제 단위마다 `section`을 두었으며 각 `section`은 `aria-labelledby`로 자기 제목(`h2`)과 연결했다. 카드처럼 그 자체로 완결된 콘텐츠(기술 카드, 저장소 카드)는 `article`을 썼다. 경력은 시간 순서가 의미 있으므로 `ul`이 아니라 `ol`로, 사실/값 쌍(경력 30년 등)은 `dl/dt/dd`로 마크업했다. 폼은 `label for`로 입력과 연결하고 에러 문구에 `aria-live`를 주어 상태 변화가 낭독되도록 했다.
@@ -382,6 +386,107 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 
 **Q6. 하나의 기능에서 이벤트 → 상태 변경 → DOM 업데이트가 어떻게 연결되는지 (React의 기초).**
 이 프로젝트의 모든 동적 기능은 같은 뼈대를 따른다: 이벤트 리스너는 DOM을 직접 만지지 않고 `setState(patch)`(또는 `setFormState`, `applyTheme`)만 호출하고, `setState`는 상태를 갱신한 뒤 `render()`를 부르며, `render()`는 현재 상태만 보고 필요한 DOM을 다시 만든다. 예를 들어 언어 필터를 누르면 `state.filter`만 바뀌고, 카드 목록은 `getVisibleRepos()`가 렌더 시점에 다시 계산한다. React는 이 패턴을 `useState`(상태 + setter)와 컴포넌트 함수(= `render()`)로 추상화하고, 우리가 `innerHTML`로 통째로 다시 그리는 부분을 가상 DOM 비교로 최소 변경만 반영해 준다. 즉 React를 쓰면 `render()`를 직접 호출하거나 어느 요소를 갱신할지 고민할 필요가 없어지지만, "이벤트는 상태만 바꾸고 화면은 상태에서 파생된다"는 원칙은 그대로다.
+
+### 5.2 평가 문항 15개 대응표
+
+평가자가 사용하는 문항(B1-1_평가문항)을 이 문서의 근거·답변 위치와 대응시킨 표다. "답변 위치"가 §5.3인 문항은 §5.1의 과제 목표 6개 답변에 포함되지 않아 별도로 보충한 것이다.
+
+| 항목 | 평가 문항 | 구현 근거 | 답변 위치 | 상태 |
+| --- | --- | --- | --- | --- |
+| 1-1 | 창 크기를 줄이면 모바일 레이아웃으로 바뀌는가 | §2.3 모바일 퍼스트·브레이크포인트 | §6 QA-01~05 | ✅ |
+| 1-2 | 테마 토글로 다크/라이트 전환, 새로고침 후 유지되는가 | §2.5, §4.1 | §6 QA-10~12 | ✅ |
+| 1-3 | 햄버거 메뉴, 스크롤 애니메이션, 맨 위로 버튼이 동작하는가 | §2.5 | §6 QA-06~09, QA-14, QA-16 | ✅ |
+| 1-4 | GitHub API 데이터 표시, 로딩/에러/빈 상태 구분 | §2.8, §4.2 | §6 QA-17~23 | ✅ |
+| 1-5 | 필수값 누락·이메일 형식 오류 시 즉각 피드백 | §2.6, §4.3 | §6 QA-25~27 | ✅ |
+| 2-1 | HTML·CSS·JS 파일 분리, 분리한 이유와 각 파일 역할 | §1.2, §2.1 | **§5.3-A** | ✅ 보충 |
+| 2-2 | 시맨틱 태그 사용, 선택 기준 | §2.2 | §5.1 Q1 | ✅ |
+| 2-3 | `:root` 변수로 색상·폰트 정의, 변수 관리의 이점 | §2.3 | **§5.3-B** | ✅ 보충 |
+| 2-4 | `onclick` 대신 `addEventListener`를 쓴 이유, 두 방식 비교 | §2.4, §3 | **§5.3-C** (§5.1 Q3 보완) | ✅ 보충 |
+| 3-1 | 다크 모드·API·폼 중 하나로 "이벤트 → 상태 → 화면" 흐름 짚기 | §4.1~4.3 | §5.1 Q6, §4 | ✅ |
+| 3-2 | `async/await`와 `try/catch`로 성공·실패 분기 | §2.8, §4.2 | §5.1 Q5 | ✅ |
+| 3-3 | `map`, `filter`로 GitHub 데이터를 카드 UI로 바꾸는 단계 | §2.7 | **§5.3-D** (§5.1 Q4 보완) | ✅ 보충 |
+| 3-4 | Flexbox·Grid 적용 위치와 선택 이유 비교 | §2.3 | §5.1 Q2 | ✅ |
+| 4-1 | 상태 객체를 따로 만든 이유, 변수로 처리하면 안 되는지 | §2.9, §4.2 | **§5.3-E** | ✅ 보충 |
+| 4-2 | 모바일 퍼스트로 작성한 이유 | §2.3 | **§5.3-F** | ✅ 보충 |
+
+### 5.3 보충 답변 — 과제 목표 6개에 없는 평가 문항
+
+**A. HTML·CSS·JS를 파일로 분리한 이유와 각 파일의 역할 (문항 2-1)**
+
+역할은 세 층으로 나뉜다. 내용과 구조는 `index.html`에, 표현(색·간격·배치·애니메이션)은 `css/style.css`에, 동작(이벤트 처리·API 호출·상태 관리)은 `js/*.js`에 둔다. JS는 기능 하나에 파일 하나로 다시 나눴다(§1.2의 일곱 파일). 각 파일은 자기 기능에 필요한 요소만 찾고 다른 파일의 변수를 참조하지 않는다.
+
+분리한 이유는 다음과 같다.
+
+1. **바뀌는 시점이 다르다.** 색을 바꿀 때는 CSS만, 검증 규칙을 바꿀 때는 `contactForm.js`만 연다. 한 파일에 섞여 있으면 수정 범위를 매번 다시 찾아야 한다.
+2. **브라우저 캐시 단위가 파일이다.** HTML 문구 하나를 고쳐도 CSS와 JS 파일은 캐시된 것을 다시 쓴다. 인라인이면 매번 전체를 다시 받는다.
+3. **재사용할 수 있다.** 페이지가 늘어나도 같은 `style.css`와 JS 파일을 연결하면 된다.
+4. **도구가 파일 종류별로 동작한다.** HTML 검사기, CSS 린터, JS 문법 검사가 각각 제 파일을 본다.
+5. **인라인 금지 제약을 지키는 구조다.** `onclick`과 `style="…"`을 HTML에서 없애려면 동작과 표현이 갈 곳이 따로 있어야 한다(§3).
+
+세 층이 서로 만나는 지점은 약속된 이름뿐이다. HTML의 `id`·`class`·`data-*` 속성을 CSS 선택자와 JS의 `getElementById`가 참조한다(`data-theme`, `data-reveal`, `data-filter`).
+
+**B. CSS 변수(`:root`)로 관리하면 얻는 이점 (문항 2-3)**
+
+`css/style.css:5-59`의 `:root`에 토큰 47개(색·폰트·간격·반경·그림자·전환 시간)를 정의하고, 파일 전체에서 `var(--…)`로 292곳에서 참조한다. 이점은 다음과 같다.
+
+1. **한 줄 수정이 전체에 반영된다.** 강조색을 바꾸려면 `--color-accent: #b8602a`(`:13`) 한 줄만 고친다. 버튼, 링크, 포커스 링, 언어 점이 함께 바뀐다.
+2. **다크 모드가 규칙 복제 없이 된다.** `[data-theme='dark']`(`:61-85`)에서 색 토큰 22개만 다시 정의한다. 292곳의 규칙을 다크용으로 다시 쓰지 않는다. JS는 속성 하나만 바꾸고 색 변경 코드는 0줄이다(§4.1).
+3. **값 대신 뜻을 읽는다.** `#b8602a`는 용도를 알 수 없지만 `--color-accent`는 이름이 용도다. `--space-4`, `--radius-pill`도 같다.
+4. **간격과 크기에 체계가 생긴다.** `--space-1…28` 단계 안에서만 고르므로 `13px`, `17px` 같은 임의 값이 섞이지 않는다.
+5. **실행 중에 바뀐다.** Sass 변수는 빌드 시점에 값으로 치환되어 사라지지만, CSS 변수는 브라우저 안에 남아 있어 속성이 바뀌면 즉시 다시 계산된다. 다크 모드 전환이 이 성질에 기댄다.
+6. **JS와 데이터를 주고받는다.** 언어 점 색은 API 응답에 따라 정해지므로 `style="--lang-color: …"`(`js/github.js:93`)로 넘기고 CSS가 `var(--lang-color, …)`(`css/style.css:980`)로 받는다.
+
+**C. `onclick` 속성 대신 `addEventListener`를 쓴 이유 (문항 2-4)**
+
+| 비교 항목 | `onclick="…"` 속성 | `addEventListener` |
+| --- | --- | --- |
+| 코드 위치 | HTML 안에 JS 문자열 | JS 파일 |
+| 처리기 개수 | 이벤트당 하나. 다시 쓰면 덮어쓴다 | 같은 이벤트에 여러 개 등록 가능 |
+| 호출할 함수 | 전역 함수여야 한다 | 파일 안의 상수·클로저를 그대로 쓴다 |
+| 옵션 | 없음 | `passive`, `once`, `capture`, `signal` |
+| 해제 | 속성을 지워야 한다 | `removeEventListener` |
+| 콘텐츠 보안 정책(CSP) | 인라인 스크립트를 막으면 동작하지 않는다 | 동작한다 |
+| 나중에 생기는 요소 | 마크업 문자열마다 다시 써야 한다 | 부모에 하나 두고 이벤트 위임 |
+
+이 프로젝트에는 `onclick` 속성이 0건이고(§3 검증 명령), 리스너 12곳은 모두 JS 파일에 있다(§2.4). 스크롤 리스너는 `{ passive: true }` 옵션이 필요했고(`js/nav.js:35`, `js/scrollTop.js:9`), 필터 버튼은 API 응답 뒤에 생기므로 이벤트 위임이 필요했다(`js/github.js:170`). 두 경우 모두 `onclick` 속성으로는 할 수 없는 일이다.
+
+**D. `map`·`filter`로 GitHub 데이터를 카드 UI로 바꾸는 단계 (문항 3-3)**
+
+`js/github.js` 기준. 각 단계는 새 배열을 만들고 원본 `state.repos`는 바꾸지 않는다.
+
+| 단계 | 코드 | 입력 → 출력 |
+| --- | --- | --- |
+| 1. 응답 파싱 | `const data = await response.json()` (`:194`) | JSON 문자열 → 저장소 객체 배열 (객체마다 필드 90여 개) |
+| 2. fork 제외 | `data.filter(({ fork }) => !fork)` (`:195`) | 전체 배열 → 본인 저장소만 담은 새 배열 → `state.repos`에 저장 |
+| 3. 언어 필터 | `state.repos.filter(({ language }) => …)` (`:55-56`, `getVisibleRepos`) | 렌더할 때마다 현재 `state.filter`에 맞는 부분 집합을 새로 계산 |
+| 4. 표시 개수 제한 | `visibleRepos.slice(0, MAX_VISIBLE_REPOS)` (`:152`) | 앞에서 9개 복사 |
+| 5. 객체 → HTML | `shownRepos.map(createRepoCard)` (`:156`) | 저장소 객체 하나 → 카드 HTML 문자열 하나. `createRepoCard`(`:75-98`)는 매개변수 구조분해로 필드 6개만 받고, 문자열은 `escapeHtml`을 거친다 |
+| 6. 문자열 합치기 | `.join('')` → `projectsGrid.innerHTML` (`:156`) | 문자열 배열 → 문자열 하나 → DOM 삽입 |
+| 7. 필터 버튼 | `getLanguages()` (`:50-53`): `map(({ language }) => language)` → `filter(Boolean)` → `new Set()` → `[...]` → `sort()`; 결과를 `map(createFilterButton)` (`:108-109`) | 저장소 배열 → 언어 이름 배열 → `null` 제거 → 중복 제거 → 정렬 → 버튼 HTML |
+
+`map`은 길이가 같은 새 배열(변환), `filter`는 조건에 맞는 항목만 담은 새 배열(선별)을 돌려준다. 3단계에서 원본을 남겨 두기 때문에 필터를 '전체'로 되돌릴 수 있다.
+
+**E. 상태 객체를 따로 만든 이유, 낱개 변수로 처리하면 안 되는지 (문항 4-1)**
+
+`let status = 'idle'; let repos = []; let filter = 'all';`처럼 낱개 변수로 써도 동작은 한다. 그래도 `state` 객체와 `setState` 함수(`js/github.js:27-37`)를 둔 이유는 다음과 같다.
+
+1. **변경과 렌더링을 한 경로로 묶기 위해서다.** 낱개 변수는 `status = 'success'`라고 대입한 뒤 `render()` 호출을 빠뜨려도 오류가 나지 않는다. 화면만 조용히 어긋난다. `setState(patch)`는 갱신 직후 항상 `render()`를 부르므로 이 실수가 생기지 않는다. 변수 대입에는 "대입 뒤에 무언가를 실행"하는 장치가 없다.
+2. **함께 바뀌는 값을 한 번에 바꾸기 위해서다.** 성공 시 `status`와 `repos`는 같이 바뀌어야 한다. `setState({ status: 'success', repos: ownRepos })` 한 번이면 "status는 success인데 repos는 빈 배열"인 중간 상태가 없다.
+3. **화면의 전체 상태가 한눈에 보인다.** 콘솔에서 `state` 하나만 찍으면 지금 화면이 왜 이런지 알 수 있다. 낱개 변수는 네 개를 따로 확인해야 한다.
+4. **렌더 함수가 인수 없이 `state`만 읽는다.** 어느 이벤트가 호출하든 같은 상태에서는 같은 화면이 나온다(§4.2). 호출하는 곳마다 다른 값을 넘길 여지가 없다.
+5. **React로 옮길 때 모양이 같다.** `useState`나 `useReducer`의 상태와 setter에 그대로 대응한다(§5.1 Q6).
+
+낱개 변수로 충분한 경우도 있다. 값이 하나이고 렌더 경로가 하나면 객체가 필요 없다. 이 프로젝트에서 테마는 `html[data-theme]` 속성 자체가 상태이고, 메뉴 열림은 `is-open` 클래스가 상태다(§2.9). 값이 둘 이상이고 함께 바뀌며 렌더 결과가 여러 영역에 걸치는 API와 폼에만 객체와 setter를 두었다. 폼도 같은 구조다(`formState`·`setFormState`, `js/contactForm.js:25-35`).
+
+**F. 반응형을 모바일 퍼스트로 작성한 이유 (문항 4-2)**
+
+기본 규칙을 가장 좁은 화면 기준으로 쓰고 `@media (min-width: 768px)`(`css/style.css:1233`)와 `(min-width: 1024px)`(`:1357`)에서 규칙을 덧붙였다. `max-width` 미디어 쿼리는 0건이다. 이유는 다음과 같다.
+
+1. **기본 상태가 가장 단순하다.** 1열 세로 배치는 선언이 가장 적다. 넓은 화면부터 쓰면 모바일에서 `float`·`grid` 해제, 폭 되돌리기 같은 취소 규칙이 필요한데, 좁은 화면부터 쓰면 취소할 것이 없다. 예: `.hero-inner`는 기본이 `flex-direction: column`(`:486`)이고 1024px에서 `grid-template-columns: 8fr 4fr`(`:1358`)를 덧붙인다. `.nav-toggle`은 기본 표시(`:391`)이고 768px에서 `display: none`(`:1238`)이다.
+2. **내용의 우선순위를 먼저 정하게 된다.** 좁은 화면에는 다 넣을 수 없으므로 무엇을 먼저 보여줄지 결정한 뒤에 넓은 화면에서 배치를 넓힌다. 반대 순서면 넓은 화면의 배치를 좁은 화면에 욱여넣게 된다.
+3. **모바일 기기가 처리할 규칙이 적다.** 미디어 쿼리 블록은 조건에 맞을 때만 적용되므로, 성능이 낮은 모바일 기기는 기본 규칙만 계산하고 나머지 세 블록은 건너뛴다.
+4. **점진적 향상 구조다.** 미디어 쿼리가 적용되지 않는 환경에서도 기본 레이아웃은 성립한다.
+5. **미션의 브레이크포인트와 방향이 맞는다.** 768px과 1024px은 "이 폭 이상에서 넓힌다"는 `min-width` 기준으로 읽는 것이 자연스럽다. 이 페이지는 `clamp()`와 `auto-fit`을 함께 써서 브레이크포인트 사이에서도 유동적으로 변한다(§5.1 Q2).
 
 ---
 
@@ -449,7 +554,7 @@ Flexbox는 1차원(한 줄 또는 한 열) 정렬 도구이고 Grid는 2차원(�
 - [ ] 배포 URL에서 §6 QA-01~32 전체 재실행 (나머지 항목)
 - [x] README.md에 배포 URL·저장소 URL 기입
 - [x] 스크린샷 4종(데스크톱 / 모바일 / 다크 모드 / Projects) — 배포 URL에서 캡쳐해 README 표에 첨부
-- [ ] 이 문서 §1.1 링크 표의 `[입력]` 채우기
+- [x] 이 문서 §1.1 링크 표 채우기 (저장소·배포·디자인 캔버스·스크린샷)
 - [ ] `grep` 검증 명령(§3) 전부 재실행해 0건 확인
 - [ ] 공개 페이지에 전화번호·생년월일 등 개인정보가 없는지 최종 확인 (`grep -n "010-\|1966" index.html`)
 - [ ] `js/github.js` `GITHUB_USERNAME`이 본인 계정(`newids`)인지 확인

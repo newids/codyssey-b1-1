@@ -7,7 +7,16 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 - **배포 URL**: https://newids.github.io/codyssey-b1-1/
 - **저장소**: https://github.com/newids/codyssey-b1-1
 - **디자인 캔버스(Claude Design)**: https://claude.ai/code/artifact/a96c9e55-c9b6-49f7-af60-e68cd0eea9ee
-- **문서**: [미션 수행 가이드](docs/GUIDE.md) · [평가 설명서](docs/EVALUATION.md) · [과제 목표 6개 상세 답변](docs/OBJECTIVES.md)
+- **문서**: [미션 수행 가이드](docs/GUIDE.md) · [평가 설명서](docs/EVALUATION.md) · [과제 목표 6개 상세 답변](docs/OBJECTIVES.md) · [초보 개발자용 5분 답변](docs/OBJECTIVES-BEGINNER.md)
+
+## 문서
+
+| 문서 | 내용 | 대상 |
+| --- | --- | --- |
+| [미션 수행 가이드](docs/GUIDE.md) | 미션 요구사항과 수행 절차 | 학습자 |
+| [평가 설명서](docs/EVALUATION.md) | 요구사항 ↔ 구현 매핑, 제약 검증 명령, "이벤트 → 상태 → 화면" 흐름 증빙, 과제 목표 6개 30초 요약과 평가 문항 15개 대응표, 수동 QA 시나리오 32개 | 평가자 |
+| [과제 목표 6개 상세 답변](docs/OBJECTIVES.md) | 여섯 목표를 원리 설명 → 소스 인용(`파일:행`) → 대안 비교 → 예상 질문 순으로 정리한 상세 버전. 절마다 ChatGPT · Gemini 인포그래픽 첨부 | 심화 학습 · 구술 평가 준비 |
+| [초보 개발자용 5분 답변](docs/OBJECTIVES-BEGINNER.md) | 같은 여섯 목표를 처음 배우는 개발자 눈높이로 줄인 버전. 한 줄 답변 → 쉬운 설명 → 코드 한 조각 → 5분 답변 순서. 절마다 ChatGPT 인포그래픽 첨부 | 입문자 · 구술 답변 연습 |
 
 ## 스크린샷
 
@@ -23,7 +32,7 @@ React·Vue·jQuery·Bootstrap·Tailwind 같은 외부 라이브러리 없이, �
 
 ## 인포그래픽
 
-과제 목표 6개를 주제별로 정리한 인포그래픽입니다. 각 주제마다 ChatGPT · Gemini 두 가지 버전이 있으며, 상세 답변은 [과제 목표 6개 상세 답변](docs/OBJECTIVES.md)의 각 절 끝에 함께 실려 있습니다.
+과제 목표 6개를 주제별로 정리한 인포그래픽입니다. 각 주제마다 ChatGPT · Gemini 두 가지 버전이 있습니다. [과제 목표 6개 상세 답변](docs/OBJECTIVES.md)에는 두 버전이, [초보 개발자용 5분 답변](docs/OBJECTIVES-BEGINNER.md)에는 ChatGPT 버전이 각 절 끝에 실려 있습니다.
 
 | 주제 | ChatGPT | Gemini |
 | --- | --- | --- |
@@ -56,7 +65,10 @@ js/typing.js        Hero 타이핑 효과 (보너스)
 js/github.js        GitHub API 호출, 로딩/성공/에러/빈 상태 렌더링, 언어별 필터 (보너스)
 js/contactForm.js   문의 폼 유효성 검사
 images/profile.jpg  프로필 사진
-docs/               미션 수행 가이드 · 평가 설명서 · 과제 목표 상세 답변
+docs/GUIDE.md       미션 수행 가이드
+docs/EVALUATION.md  평가 설명서 (요구사항 매핑 · QA · 평가 문항 대응표)
+docs/OBJECTIVES.md  과제 목표 6개 상세 답변
+docs/OBJECTIVES-BEGINNER.md  과제 목표 6개 초보 개발자용 5분 답변
 infographic/        과제 목표 6개 인포그래픽 (ChatGPT · Gemini 각 1장)
 ```
 
